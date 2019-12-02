@@ -115,7 +115,7 @@
             android:layout_height="wrap_content"
 
 
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:text="Payment History"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -296,7 +296,7 @@
             android:layout_height="wrap_content"
 
 
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:text="Government Services"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -477,7 +477,7 @@
             android:layout_height="wrap_content"
 
 
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:text="Other Services"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -645,10 +645,21 @@
     </LinearLayout>
 
 
+
+
             </LinearLayout>
 
        </androidx.core.widget.NestedScrollView>
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        app:itemIconTint="@color/nav_item_state_list"
+        app:itemTextColor="@color/nav_item_state_list"
+        app:menu="@menu/bottom_navigation_items" />
 
 
 </LinearLayout>

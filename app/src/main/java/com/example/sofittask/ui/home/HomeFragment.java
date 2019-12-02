@@ -3,6 +3,7 @@ package com.example.sofittask.ui.home;
 import android.media.Image;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -20,6 +21,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.sofittask.R;
 import com.example.sofittask.ui.sercives.GalleryFragment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.squareup.picasso.Picasso;
 
 public class HomeFragment extends Fragment {
@@ -34,6 +36,17 @@ public class HomeFragment extends Fragment {
         homeViewModel = ViewModelProviders.of(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
         final Toolbar toolbar = root.findViewById(R.id.toolbar);
+
+
+
+        BottomNavigationView bottomNavigationView = (BottomNavigationView)
+                root.findViewById(R.id.navigation);
+
+
+
+
+
+
 
         gbox1=(LinearLayout)root.findViewById(R.id.gbox1);
         gbox2=(LinearLayout)root.findViewById(R.id.gbox2);
@@ -66,7 +79,7 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
 
                 Toast.makeText(getContext(), "Service Fragment", Toast.LENGTH_SHORT).show();
-                
+
 
                 Fragment someFragment = new GalleryFragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
@@ -121,6 +134,47 @@ public class HomeFragment extends Fragment {
 
             }
         });
+
+
+
+
+
+        bottomNavigationView.setOnNavigationItemSelectedListener
+                (new BottomNavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                        Fragment selectedFragment = null;
+                        switch (item.getItemId()) {
+                            case R.id.action_item1:
+                                Fragment someFragment = new GalleryFragment();
+                                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                                transaction.replace(R.id.nav_host_fragment, someFragment ); // give your fragment container id in first parameter
+                                transaction.addToBackStack(null);  // if written, this transaction will be added to backstack
+                                transaction.commit();
+                                break;
+                            case R.id.action_item2:
+                                Fragment someFragment1 = new GalleryFragment();
+                                FragmentTransaction transaction1 = getFragmentManager().beginTransaction();
+                                transaction1.replace(R.id.nav_host_fragment, someFragment1 ); // give your fragment container id in first parameter
+                                transaction1.addToBackStack(null);  // if written, this transaction will be added to backstack
+                                transaction1.commit();
+                                break;
+                            case R.id.action_item3:
+                                Fragment someFragment2 = new GalleryFragment();
+                                FragmentTransaction transaction2 = getFragmentManager().beginTransaction();
+                                transaction2.replace(R.id.nav_host_fragment, someFragment2 ); // give your fragment container id in first parameter
+                                transaction2.addToBackStack(null);  // if written, this transaction will be added to backstack
+                                transaction2.commit();
+                                break;
+                        }
+
+                        return true;
+                    }
+                });
+
+
+
+
 
 
         final TextView textView = root.findViewById(R.id.text_home);

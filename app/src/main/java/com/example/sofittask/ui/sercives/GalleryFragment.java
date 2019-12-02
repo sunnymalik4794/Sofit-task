@@ -23,6 +23,12 @@ import java.util.List;
 
 public class GalleryFragment extends Fragment {
 
+    public static GalleryFragment newInstance() {
+        GalleryFragment fragment = new GalleryFragment();
+        return fragment;
+    }
+
+
     List<Product> productList;
 
     //the recyclerview
