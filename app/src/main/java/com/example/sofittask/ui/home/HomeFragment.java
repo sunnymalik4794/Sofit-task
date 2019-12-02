@@ -109,6 +109,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
+
                 Toast.makeText(getContext(), "Service Fragment", Toast.LENGTH_SHORT).show();
 
                 Fragment someFragment = new GalleryFragment();
